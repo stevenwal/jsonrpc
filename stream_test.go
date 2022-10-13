@@ -239,7 +239,7 @@ func TestTCP(t *testing.T) {
 	a.NotError(err)
 	conn, err := net.DialTCP("tcp", nil, raddr)
 	clientT := NewSocketTransport(header, conn, time.Second)
-	client := NewServer().NewConn(clientT, nil)
+	client := NewServer("test").NewConn(clientT, nil)
 	clientCtx, clientCancel := context.WithCancel(context.Background())
 	clientExit := make(chan struct{}, 1)
 	go func() {

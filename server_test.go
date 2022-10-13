@@ -54,7 +54,7 @@ var (
 )
 
 func initServer(a *assert.Assertion) *Server {
-	srv := NewServer()
+	srv := NewServer("test")
 	a.NotNil(srv)
 
 	a.True(srv.Register("f1", f1))
@@ -223,7 +223,7 @@ func TestServer_response(t *testing.T) {
 
 func TestServer_Registers(t *testing.T) {
 	a := assert.New(t, false)
-	srv := NewServer()
+	srv := NewServer("test")
 	a.NotNil(srv)
 
 	a.NotPanic(func() {
@@ -233,7 +233,7 @@ func TestServer_Registers(t *testing.T) {
 		})
 	})
 
-	srv = NewServer()
+	srv = NewServer("test")
 	a.NotNil(srv)
 	a.Panic(func() {
 		srv.Registers(map[string]interface{}{
@@ -242,7 +242,7 @@ func TestServer_Registers(t *testing.T) {
 		})
 	})
 
-	srv = NewServer()
+	srv = NewServer("test")
 	a.NotNil(srv)
 	a.Panic(func() {
 		a.True(srv.Register("f1", f1))
