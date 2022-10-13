@@ -1,4 +1,4 @@
-module github.com/issue9/jsonrpc
+module github.com/stevenwal/jsonrpc
 
 require (
 	github.com/gorilla/websocket v1.5.0
